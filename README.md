@@ -1,8 +1,6 @@
-# **Meat Member Club API - Ontwikkelaarsdocumentatie**
+# **Meat Member Club API**
 
 Deze API stelt partners in staat om MMC-leden te valideren, kortingen toe te passen en loyaliteitspunten toe te kennen aan leden na voltooiing van een aankoop.
-
-Alle API-aanroepen vereisen een **`secret_key`** in de headers om authenticatie te garanderen.
 
 ---
 
@@ -112,7 +110,9 @@ POST https://partner.meatmemberclub.nl/api/partners-transactions/
 ## **3. Transactie annuleren of bewerken**
 ### **PATCH** `/api/partners-transactions/`
 
-**Gebruik:** Annuleert of wijzigt een bestaande transactie op basis van het `ref_number`.
+**Gebruik:** Annuleert of wijzigt een bestaande transactie op basis van het `ref_number`. 
+
+> **Opmerking:** Het opgegeven `ref_number` moet overeenkomen met een bestaande transactie om deze te kunnen annuleren of bewerken.
 
 **URL:**
 ```plaintext
@@ -173,8 +173,6 @@ PATCH https://partner.meatmemberclub.nl/api/partners-transactions/
 ---
 
 ## **Authenticatie en Beveiliging**
-- Elke aanvraag moet de header **`secret_key`** bevatten met een geldige waarde.
-- Alle aanvragen gebruiken **HTTPS** om gegevensbeveiliging te garanderen.
 - Indien de `secret_key` ongeldig is, wordt een **404** response teruggestuurd met `"invalid_secret_key"`.
 
 ---
